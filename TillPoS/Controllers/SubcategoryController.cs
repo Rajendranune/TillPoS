@@ -219,16 +219,15 @@ namespace TillPoS.Controllers
                             }
                         }
                     }
-                    HttpResponseMessage responseMessage = await client.GetAsync("http://webapi20170117015441.azurewebsites.net/api/Validation/GetSubCategory/" + collection.Id);
-                    if (responseMessage.IsSuccessStatusCode)
-
-                        responseMessage = await client.DeleteAsync(url + "/Delete/" + id);
+                    
+                    HttpResponseMessage responseMessage = await client.DeleteAsync(url + "/Delete/" + id);
                     if (responseMessage.IsSuccessStatusCode)
                     {
                         return RedirectToAction("Index");
                     }
+                    else { View("Error"); }
                 }
-                return RedirectToAction("Error");
+                return View("Error");
             }
             catch
             {
