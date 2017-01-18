@@ -227,7 +227,7 @@ namespace TillPoS.Controllers
                     }
                     else { View("Error"); }
                 }
-                return View("Error");
+                return View();
             }
             catch
             {
